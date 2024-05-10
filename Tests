@@ -57,37 +57,48 @@ public class calculaTest {
     @Test
     public void ownProvTest_1() {
         try {
-            File f = new File("test_5");
+            File f = new File("OwnTest_1");
             Scanner scanner = new Scanner(f);
             String[] nums = scanner.nextLine().split(" ");
-            Assert.assertEquals(5, Operations._min(nums));
+            Assert.assertEquals(2, Operations._min(nums));
 
             scanner.close();
         }
     }
 
     @Test
-    public void ownProvTest_1() {
+    public void ownProvTest_2() {
         try {
-            File f = new File("test_5");
+            File f = new File("OwnTest_2");
             Scanner scanner = new Scanner(f);
             String[] nums = scanner.nextLine().split(" ");
-            Assert.assertEquals(5, Operations._min(nums));
+            Assert.assertEquals(467, Operations._mult(nums));
 
             scanner.close();
         }
     }
 
     @Test
-    public void ownProvTest_1() {
+    public void ownProvTest_3() {
         try {
-            File f = new File("test_5");
+            File f = new File("OwnTest_3");
             Scanner scanner = new Scanner(f);
             String[] nums = scanner.nextLine().split(" ");
-            Assert.assertEquals(5, Operations._min(nums));
+            Assert.assertEquals(0, Operations._mult(nums));
 
             scanner.close();
         }
     }
 
+    @Test
+    public void ownProvTest_4() {
+        try {
+            File f = new File("OwnTest_3");
+            Scanner scanner = new Scanner(f);
+            String[] nums = scanner.nextLine().split(" ");
+            Assert.assertEquals(-97, Operations._min(nums));
+
+            scanner.close();
+        }
+    }
 }
