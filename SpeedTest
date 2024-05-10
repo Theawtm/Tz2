@@ -20,21 +20,24 @@ public class OperationsTest {
             Operations._min(numbers);
             long minEndTime = System.nanoTime();
 
+            long minTime = (minEndTime - minStartTime) / 1000000;
+
             long maxStartTime = System.nanoTime();
             Operations._max(numbers);
             long maxEndTime = System.nanoTime();
+
+            long maxTime = (maxEndTime - maxStartTime) / 1000000;
 
             long sumStartTime = System.nanoTime();
             Operations._sum(numbers);
             long sumEndTime = System.nanoTime();
 
+            long sumTime = (sumEndTime - sumStartTime) / 1000000;
+
             long multStartTime = System.nanoTime();
             Operations._mult(numbers);
             long multEndTime = System.nanoTime();
 
-            long minTime = (minEndTime - minStartTime) / 1000000;
-            long maxTime = (maxEndTime - maxStartTime) / 1000000;
-            long sumTime = (sumEndTime - sumStartTime) / 1000000;
             long multTime = (multEndTime - multStartTime) / 1000000;
 
             writer.append(size + ", " + minTime + ", " + maxTime + ", " + sumTime + ", " + multTime + "n");
