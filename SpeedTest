@@ -9,40 +9,37 @@ import static org.junit.Assert.assertEquals;
 public class OperationsTest {
 
     @Test
-    public void testSpeed() throws IOException {
-        FileWriter writer = new FileWriter("speed_test_results");
+    public void testSpeedWithDifferentInputSizes() throws IOException {
+        FileWriter writer = new FileWriter("speed_test_results.csv");
         writer.append("Input Size, Min Time (ms), Max Time (ms), Sum Time (ms), Mult Time (ms)n");
 
-        for (int size = 500; size <= 50500; size += 1000) {
+        for (int size = 10000; size <= 1000000; size += 10000) {
             int[] numbers = generateNumbers(size);
 
             long minStartTime = System.nanoTime();
             Operations._min(numbers);
             long minEndTime = System.nanoTime();
 
-            long minTime = (minEndTime - minStartTime) / 1000000;
-
             long maxStartTime = System.nanoTime();
             Operations._max(numbers);
             long maxEndTime = System.nanoTime();
-
-            long maxTime = (maxEndTime - maxStartTime) / 1000000;
 
             long sumStartTime = System.nanoTime();
             Operations._sum(numbers);
             long sumEndTime = System.nanoTime();
 
-            long sumTime = (sumEndTime - sumStartTime) / 1000000;
-
             long multStartTime = System.nanoTime();
             Operations._mult(numbers);
             long multEndTime = System.nanoTime();
 
+            long minTime = (minEndTime - minStartTime) / 1000000;
+            long maxTime = (maxEndTime - maxStartTime) / 1000000;
+            long sumTime = (sumEndTime - sumStartTime) / 1000000;
             long multTime = (multEndTime - multStartTime) / 1000000;
 
             writer.append(size + ", " + minTime + ", " + maxTime + ", " + sumTime + ", " + multTime + "n");
 
-            System.out.println(Min Time: " + minTime + "ms, Max Time: " + maxTime + "ms, Sum Time: " + sumTime + "ms, Mult Time: " + multTime + "ms");
+            System.out.println("Size: " + size + ", Min Time: " + minTime + "ms, Max Time: " + maxTime + "ms, Sum Time: " + sumTime + "ms, Mult Time: " + multTime + "ms");
         }
 
         writer.close();
