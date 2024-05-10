@@ -12,7 +12,7 @@ public class calculaTest {
             File f = new File("test_1");
             Scanner scanner = new Scanner(f);
             String[] nums = scanner.nextLine().split(" ");
-            Assert.assertEquals(1, calc._min(numbersArray));
+            Assert.assertEquals(5, Operations._min(nums));
 
             scanner.close();
         }
@@ -24,18 +24,19 @@ public class calculaTest {
             File f = new File("test_2");
             Scanner scanner = new Scanner(f);
             String[] nums = scanner.nextLine().split(" ");
-            Assert.assertEquals(1, calc._min(numbersArray));
+            Assert.assertEquals(99, Operations._max(nums));
 
             scanner.close();
         }
     }
+
     @Test
     public void test_3() {
         try {
             File f = new File("test_3");
             Scanner scanner = new Scanner(f);
             String[] nums = scanner.nextLine().split(" ");
-            Assert.assertEquals(1, calc._min(numbersArray));
+            Assert.assertEquals(214, Operations._sum(nums));
 
             scanner.close();
         }
@@ -47,32 +48,46 @@ public class calculaTest {
             File f = new File("test_4");
             Scanner scanner = new Scanner(f);
             String[] nums = scanner.nextLine().split(" ");
-            Assert.assertEquals(1, calc._min(numbersArray));
-
-            scanner.close();
-        }
-    }
-    @Test
-    public void test_1() {
-        try {
-            File f = new File("test_1");
-            Scanner scanner = new Scanner(f);
-            String[] nums = scanner.nextLine().split(" ");
-            Assert.assertEquals(1, calc._min(numbersArray));
+            Assert.assertEquals(6483726316514304000000, Operations._mult(nums));
 
             scanner.close();
         }
     }
 
     @Test
-    public void test_1() {
+    public void ownProvTest_1() {
         try {
-            File f = new File("test_1");
+            File f = new File("test_5");
             Scanner scanner = new Scanner(f);
             String[] nums = scanner.nextLine().split(" ");
-            Assert.assertEquals(1, calc._min(numbersArray));
+            Assert.assertEquals(5, Operations._min(nums));
 
             scanner.close();
         }
     }
+
+    @Test
+    public void ownProvTest_1() {
+        try {
+            File f = new File("test_5");
+            Scanner scanner = new Scanner(f);
+            String[] nums = scanner.nextLine().split(" ");
+            Assert.assertEquals(5, Operations._min(nums));
+
+            scanner.close();
+        }
+    }
+
+    @Test
+    public void ownProvTest_1() {
+        try {
+            File f = new File("test_5");
+            Scanner scanner = new Scanner(f);
+            String[] nums = scanner.nextLine().split(" ");
+            Assert.assertEquals(5, Operations._min(nums));
+
+            scanner.close();
+        }
+    }
+
 }
