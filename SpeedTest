@@ -1,0 +1,59 @@
+import org.junit.Test;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+
+import static org.junit.Assert.assertEquals;
+
+public class OperationsTest {
+
+    @Test
+    public void testSpeed() throws IOException {
+        FileWriter writer = new FileWriter("speed_test_results");
+        writer.append("Input Size, Min Time (ms), Max Time (ms), Sum Time (ms), Mult Time (ms)n");
+
+        for (int size = 500; size <= 50500; size += 1000) {
+            int[] numbers = generateNumbers(size);
+
+            long minStartTime = System.nanoTime();
+            Operations._min(numbers);
+            long minEndTime = System.nanoTime();
+
+            long minTime = (minEndTime - minStartTime) / 1000000;
+
+            long maxStartTime = System.nanoTime();
+            Operations._max(numbers);
+            long maxEndTime = System.nanoTime();
+
+            long maxTime = (maxEndTime - maxStartTime) / 1000000;
+
+            long sumStartTime = System.nanoTime();
+            Operations._sum(numbers);
+            long sumEndTime = System.nanoTime();
+
+            long sumTime = (sumEndTime - sumStartTime) / 1000000;
+
+            long multStartTime = System.nanoTime();
+            Operations._mult(numbers);
+            long multEndTime = System.nanoTime();
+
+            long multTime = (multEndTime - multStartTime) / 1000000;
+
+            writer.append(size + ", " + minTime + ", " + maxTime + ", " + sumTime + ", " + multTime + "n");
+
+            System.out.println(Min Time: " + minTime + "ms, Max Time: " + maxTime + "ms, Sum Time: " + sumTime + "ms, Mult Time: " + multTime + "ms");
+        }
+
+        writer.close();
+    }
+
+    private int[] generateNumbers(int size) {
+        Random random = new Random();
+        int[] numbers = new int[size];
+        for (int i = 0; i < size; i++) {
+            numbers[i] = random.nextInt(100);
+        }
+        return numbers;
+    }
+}
