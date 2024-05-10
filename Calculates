@@ -56,9 +56,6 @@ public class Operations {
             System.out.println("Sum: " + _sum(numbers));
             System.out.println("Mult: " + _mult(numbers));
 
-        } catch (FileNotFoundException e) {
-            System.out.println("No such file")
-            e.printStackTrace();
         }
     }
 }
